@@ -15,20 +15,22 @@ const defaul = ['🤖', '🤖', '🤖', '🤖',
 
 btn.addEventListener("click", function () {
     setTimeout(coutdown, 5000)
+    
+        
+    for(let i=0;i<16;i++){
+        
+        tbl[i] = document.getElementById(i+1);
+        tbl[i].innerHTML = shuffled[i] 
+        
     function coutdown() {
         clock.innerHTML = imer;
         imer--;
         if (imer == 0) {
             imer = 5;
+            tbl[i].innerHTML = defaul[i];
+            alert('time out try to find the Yellow color!🤖')
         }
-        alert('time out try to find the Yellow color!🤖')
-    for(let i=0;i<16;i++){
-        if(i<16){
-        tbl[i] = document.getElementById(i+1);
-        tbl[i].innerHTML = shuffled[i] 
-        }else{tbl[i].innerHTML = defaul[i];
-
-        }
+        
         }
 
     }})
