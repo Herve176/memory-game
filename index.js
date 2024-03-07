@@ -21,7 +21,8 @@ btn.addEventListener("click", function () {
     for(let i=0;i<16;i++){
         
         tbl[i] = document.getElementById(i+1);
-        tbl[i].style.backgroundColor = shuffled[i]; 
+        tbl[i].style.backgroundColor = shuffled[i];
+        
         
     function coutdown() {
         clock.innerHTML = imer;
