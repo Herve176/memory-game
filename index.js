@@ -48,8 +48,7 @@ btn.addEventListener("click", () => {
       if (timeLeft === 0) {
         clearInterval(countdown);
         resetColors();
-        timeLeft = 9; // Reset the timer for the next round
-        timerElement.textContent = `Time left: ${timeLeft} seconds`;
+        timerElement.textContent = `Time is over! select the yellow color`;
       }
     }, 2005);
   });
