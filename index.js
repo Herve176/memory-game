@@ -1,50 +1,66 @@
 let btn = document.getElementById("btn");
-const elements = ['#ff0000', '#008000', '#5733ff', '#ffff00',
-'#ff0000', '#008000', '#5733ff', '#ffff00', 
-'#ff0000', '#008000', '#5733ff', '#ffff00', 
-'#ff0000', '#008000', '#5733ff', '#ffff00' ];
-const rai = shuffleArray(elements)
+let timeLeft = 9; // Initial time in seconds
+const timerElement = document.getElementById("timer");
+const shule_color = [
+  "#ff0000",
+  "#008000",
+  "#5733ff",
+  "#ffff00",
+  "#ff0000",
+  "#008000",
+  "#5733ff",
+  "#ffff00",
+  "#ff0000",
+  "#008000",
+  "#5733ff",
+  "#ffff00",
+  "#ff0000",
+  "#008000",
+  "#5733ff",
+  "#ffff00",
+];
+//first page alert to descripe the game
+alert(
+  "Welcome to the game .please memorise the position of yellow color and click on ok to start  the game"
+);
+//second page to play
+const rai = shuffleArray(shule_color);
 const shuffled = shuffleArray(rai);
-let tbl = [];
-let clock = document.getElementById("clock");
-let imer = 5;
-const defaul = ['🤖', '🤖', '🤖', '🤖', 
-'🤖', '🤖', '🤖', '🤖', 
-'🤖', '🤖', '🤖', '🤖', 
-'🤖', '🤖', '🤖', '🤖'];
-
-
-btn.addEventListener("click", function () {
-    setTimeout(coutdown, 5000)
-    
-        
-    for(let i=0;i<16;i++){
-        
-        tbl[i] = document.getElementById(i+1);
-        tbl[i].style.backgroundColor = shuffled[i];
-        
-        
-    function coutdown() {
-        clock.innerHTML = imer;
-        imer--;
-        if (imer == 0) {
-            imer = 5;
-            
-            alert('time out try to find the Yellow color!🤖')
-        }
-        
-        }
-
-    }
-    
-})
-for (let i = 0; i < 16; i++) {
-    tbl[i].innerHTML = defaul[i];
-}
-
 function shuffleArray(array) {
-    return array.sort(() => Math.random() - 0.5);
+  return array.sort(() => Math.random() - 0.5);
 }
+function resetColors() {
+  for (let i = 0; i < 16; i++) {
+    document.getElementById(i).style.backgroundColor = "#ffffff"; // Reset to white or any initial color
+  }
+}
+btn.addEventListener("click", () => {
+  shuffled.forEach((element) => {
+    for (let i = 0; i < 16; i++) {
+      document.getElementById(i).style.backgroundColor = shuffled[i];
+    }
+    // Start the countdown timer
+    const countdown = setTimeout(() => {
+      timeLeft--;
+      timerElement.textContent = `Time left: ${timeLeft} seconds`;
 
-    
-
+      // When time is up, reset colors and stop the timer
+      if (timeLeft === 0) {
+        clearInterval(countdown);
+        resetColors();
+        timeLeft = 9; // Reset the timer for the next round
+        timerElement.textContent = `Time left: ${timeLeft} seconds`;
+      }
+    }, 2080);
+  });
+  // Add click event listeners to grid cells to check for yellow color
+  for (let i = 0; i < 16; i++) {
+    document.getElementById(i).addEventListener("click", () => {
+      if (shuffled[i] === "#ffff00") {
+        alert("Correct! You found the yellow color!");
+      } else {
+        alert("Wrong! Try again.");
+      }
+    });
+  }
+});
