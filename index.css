@@ -1,26 +1,97 @@
-*{
-    font-family: "Bungee Spice",
-    sans-serif;
-    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Bungee Spice", sans-serif;
 }
-table , th ,td{
-    border: solid;
-    width: 650px;
-    height: 100px;
-}
-#tb{
-    margin-left: 400px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-#header{
-    background-image: url(./src/gmae.jpg) ;
+
+/* Header Styles */
+#header {
+    background-image: url(./src/gmae.jpg);
+    background-size: cover; /* Ensure the background image covers the header */
+    background-position: center; /* Center the background image */
     width: 100%;
-    height: 100%;
+    height: 200px; /* Adjust height as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
 }
-button{
+
+/* Table Styles */
+table, th, td {
+    border: 2px solid #000; /* Add a solid border */
+    width: 100%; /* Make the table responsive */
+    max-width: 650px; /* Set a maximum width for larger screens */
+    height: auto; /* Allow height to adjust */
+}
+
+th {
+    width: 25%; /* Each cell takes 25% of the table width */
+    height: 100px; /* Fixed height for cells */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+th:hover {
+    background-color: #ffcc00; /* Highlight on hover */
+}
+
+/* Table Container */
+#tb {
+    display: flex;
+    justify-content: center; /* Center the table horizontally */
+    align-items: center; /* Center the table vertically */
+    margin: 20px auto; /* Add some margin for spacing */
+    padding: 20px;
+}
+
+/* Button Styles */
+button {
     font-size: 24px;
     border-radius: 12px;
     padding: 10px 24px;
-    margin-left: 600px;
+    background-color: #ffcc00;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 20px auto; /* Center the button */
+}
+
+button:hover {
+    background-color: #e6b800; /* Darker shade on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    #header {
+        height: 150px; /* Reduce header height for smaller screens */
+    }
+
+    th {
+        height: 80px; /* Reduce cell height for smaller screens */
+    }
+
+    button {
+        font-size: 20px; /* Reduce button font size */
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    #header {
+        height: 120px; /* Further reduce header height for mobile */
+    }
+
+    th {
+        height: 60px; /* Further reduce cell height for mobile */
+    }
+
+    button {
+        font-size: 18px; /* Further reduce button font size */
+        padding: 6px 12px;
+    }
 }
