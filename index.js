@@ -51,7 +51,7 @@ btn.addEventListener("click", () => {
         timeLeft = 9; // Reset the timer for the next round
         timerElement.textContent = `Time left: ${timeLeft} seconds`;
       }
-    }, 2050);
+    }, 2005);
   });
   // Add click event listeners to grid cells to check for yellow color
   for (let i = 0; i < 16; i++) {
