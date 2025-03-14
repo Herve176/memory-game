@@ -21,7 +21,7 @@ const shule_color = [
 ];
 //first page alert to descripe the game
 alert(
-  "Welcome to the game .please memorise the position of yellow color and click on ok to start  the game"
+  "Welcome to the game .please memorise the position of yellow color and click on ok then play to start  the game"
 );
 //second page to play
 const rai = shuffleArray(shule_color);
